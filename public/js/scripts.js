@@ -1,4 +1,5 @@
     const nav = document.querySelector('.site-nav ul');
+    const header = document.querySelector('header');
     const markup = 
     `${navItems.map( navItem => `<li><a href="${navItem.link}">${navItem.label}</a></li>`).join('')}`;
     nav.innerHTML = markup;
@@ -20,7 +21,9 @@
     function fixNav() {
       if(window.scrollY >= topOfNav) {
         document.body.classList.add('fixed-nav');
+        document.body.style.paddingTop = header.offsetHeight + 'px';
       } else {
         document.body.classList.remove('fixed-nav');
+        document.body.style.paddingTop = 0;
       }
     }
